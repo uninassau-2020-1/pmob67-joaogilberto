@@ -1,0 +1,7 @@
+{
+  "name": "ViaCepIonic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

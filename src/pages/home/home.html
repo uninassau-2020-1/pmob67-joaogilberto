@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Via Cep
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item margin-bottom>
+      <ion-label floating>Código Cep</ion-label>
+      <ion-input type="number" [(ngModel)]="cep"></ion-input>
+    </ion-item>
+
+    <button ion-button block margin-bottom (click)="getEndereco()">Buscar</button>
+
+  </ion-list>
+
+  <ion-list margin-top *ngIf="endereco.cep">
+
+    <h3 text-center margin-bottom > Resultado:</h3>
+
+    <ion-item margin-bottom>
+        <ion-label floating>Endereço</ion-label>
+      <ion-input type="text" [(ngModel)]="endereco.logradouro" disabled></ion-input>
+    </ion-item>
+
+    <ion-item margin-bottom>
+        <ion-label floating>Bairro</ion-label>
+      <ion-input type="text" [(ngModel)]="endereco.bairro" disabled></ion-input>
+    </ion-item>
+
+    <ion-item margin-bottom>
+        <ion-label floating>Cidade</ion-label>
+      <ion-input type="text" [(ngModel)]="endereco.localidade" disabled></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+
+
+
+</ion-content>
