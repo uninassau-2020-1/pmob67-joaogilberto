@@ -1,9 +1,16 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, NgModule } from '@angular/core';
+import { Platform, IonicModule } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+
+@NgModule({
+    declarations: [HomePage],
+    imports: [IonicModule.forRoot(MyApp)],
+    exports: [HomePage]
+})
+
 @Component({
   templateUrl: 'app.html'
 })
