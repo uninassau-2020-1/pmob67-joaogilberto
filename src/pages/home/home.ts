@@ -15,22 +15,23 @@ export class HomePage {
 	constructor(
 		public navCtrl: NavController,
 		private viacep: ViacepProvider,
-		public formBuilder: FormBuilder) { // validação do form inserida
+		public formBuilder: FormBuilder) { // Referência ao form iserido
 		this.cepForm = this.formBuilder.group({
-			cep: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]] // validação do cep
+			cep: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]] // Validação do campo cep
 		})
 	}
 
 	getEndereco() {
-		this.viacep.callService(this.cep.replace(/\./, '')) // tratamento da máscara
+		this.viacep.callService(this.cep)
 			.subscribe(
 				(data: any) => {
 					this.endereco = data;
 					//console.log(this.cep);
 					this.cepForm.reset();
-				}
+				}	
 			);
 	}
-	cepForm: FormGroup; // validação do cep	
+	
+	cepForm: FormGroup; // Inserção do from do cep	
 
 }
