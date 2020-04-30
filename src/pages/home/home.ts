@@ -9,9 +9,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class HomePage {
 
-	private cep;
+	private cep: String;
 	private endereco: any = {};
-	vazio = "";
 
 	constructor(
 		public navCtrl: NavController,
@@ -23,16 +22,15 @@ export class HomePage {
 	}
 
 	getEndereco() {
-		this.viacep.callService(this.cep)
+		this.viacep.callService(this.cep.replace(/\./, '')) // tratamento da máscara
 			.subscribe(
-				data => {
+				(data: any) => {
 					this.endereco = data;
-					//console.log(data);
+					//console.log(this.cep);
 					this.cepForm.reset();
 				}
 			);
 	}
-
-	cepForm: FormGroup; // validação do cep
+	cepForm: FormGroup; // validação do cep	
 
 }

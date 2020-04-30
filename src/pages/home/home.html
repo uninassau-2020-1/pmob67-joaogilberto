@@ -14,7 +14,7 @@
       <!--referência do formGroup do home.ts-->
       <ion-item margin-bottom>
         <ion-label floating>INFORME O CEP</ion-label>
-        <ion-input type="text" [(ngModel)]="cep" formControlName="cep" [brmasker]="{mask:'00000000', len:8}">
+        <ion-input type="text" [(ngModel)]="cep" formControlName="cep" [brmasker]="{mask:'00.000-000', len:10, type:'num'}">
         </ion-input>
         <!--referência do campo e validação conforme documentação de plug-in BrMaskerModule-->
       </ion-item>
