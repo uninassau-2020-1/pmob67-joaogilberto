@@ -11,17 +11,15 @@
   <ion-list>
 
     <form novalidate [formGroup]="cepForm">
-      <!--Referência do formGroup do home.ts-->
+      <!--Referência do form criado no home.ts-->
       <ion-item margin-bottom>
         <ion-label floating>INFORME O CEP</ion-label>
         <ion-input type="text" [(ngModel)]="cep" formControlName="cep" [brmasker]="{mask:'00000-000', len:9, type:'num'}" required>
-        </ion-input>
-        <!--Implementação da máscara do plug-in BrMaskerModule-->
+        </ion-input>                                                   <!--Implementação da máscara de CEP do plug-in BrMaskerModule-->        
       </ion-item>
     </form>
 
-    <button ion-button block (click)="getEndereco()">BUSCAR</button>
-    <!--Especificação do tipo de botão para chamar a função get-->
+    <button ion-button block (click)="getEndereco()">BUSCAR</button> <!--Especificação do tipo de botão e função de chamada de serviço ViaCep-->    
 
   </ion-list>
   <ion-list *ngIf="endereco.cep">

@@ -15,23 +15,28 @@ export class HomePage {
 	constructor(
 		public navCtrl: NavController,
 		private viacep: ViacepProvider,
-		public formBuilder: FormBuilder) { // Referência ao form iserido
+		public formBuilder: FormBuilder) {
 		this.cepForm = this.formBuilder.group({
-			cep: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]] // Validação do campo cep
+			cep: [null, [Validators.required]]
 		})
 	}
 
 	getEndereco() {
-		this.viacep.callService(this.cep)
-			.subscribe(
-				(data: any) => {
-					this.endereco = data;
-					//console.log(this.cep);
-					this.cepForm.reset();
-				}	
-			);
+		if (this.cep == null) {	// Validação se o campo de CEP estiver vazio. 
+			alert("INFORME UM CEP!");			
+		} else
+			this.viacep.callService(this.cep) // Chamada do serviço ViaCep
+				.subscribe(
+					(data: any) => {
+						if ("erro" in data) { // Validação se o número de CEP informado não encontrar resultados.
+							alert("CEP INVÁLIDO!");
+						}
+						this.endereco = data;
+						this.cepForm.reset();
+					}
+				)
 	}
 	
-	cepForm: FormGroup; // Inserção do from do cep	
+	cepForm: FormGroup; // Form criado para manipular e validar o CEP digitado.
 
 }
