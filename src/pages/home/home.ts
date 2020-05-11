@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { ViacepProvider } from '../../providers/viacep/viacep';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MapaPage } from '../mapa/mapa';
 
 @Component({
 	selector: 'page-home',
@@ -62,6 +63,10 @@ export class HomePage {
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  goMapaPage(): void {
+    this.navCtrl.push(MapaPage);
   }
 
 }

@@ -1,14 +1,17 @@
+import { from } from 'rxjs/observable/from';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
- 
+
 import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ViacepProvider } from '../providers/viacep/viacep';
 import { BrMaskerModule } from 'brmasker-ionic-3';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { MapaPageModule } from '../pages/mapa/mapa.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    BrMaskerModule
+    BrMaskerModule,
+    MapaPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -30,7 +34,8 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ViacepProvider
+    ViacepProvider,
+    Geolocation
   ]
 })
 export class AppModule {}

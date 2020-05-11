@@ -44,6 +44,8 @@
       <ion-label floating>Cidade</ion-label>
       <ion-input type="text" [(ngModel)]="endereco.localidade" disabled></ion-input>
     </ion-item>
-  </ion-list>
 
+    <button ion-button block (click)="goMapaPage()">LOCALIZAR NO MAPA</button>
+
+  </ion-list>
 </ion-content>
