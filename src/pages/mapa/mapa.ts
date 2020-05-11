@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the MapaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+declare var google;
 
 @IonicPage()
 @Component({
@@ -14,12 +9,35 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'mapa.html',
 })
 export class MapaPage {
+  map: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MapaPage');
+    const position = new google.maps.LatLng(-21.763409, -43.349034);
+
+    const mapOptions = {
+      zoom: 18,
+      center: position,
+      disableDefaultUI: false
+    }
+
+    this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    const marker = new google.maps.Marker({
+      position: position,
+      map: this.map,
+
+      //Titulo
+      title: 'Minha posição',
+
+      //Animção
+      animation: google.maps.Animation.BOUNCE, // DROP
+
+      //Icone
+      icon: 'assets/imgs/pessoa.png'
+    });
   }
 
 }
