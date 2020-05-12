@@ -9,12 +9,6 @@ import { MapaPage } from '../mapa/mapa';
 	templateUrl: 'home.html'
 })
 
-@Component({
-  selector: 'alert-example',
-  templateUrl: 'alert-example.html',
-  //styleUrls: ['./alert-example.css'],
-})
-
 export class HomePage {
 
 	private cep: String;
@@ -64,6 +58,12 @@ export class HomePage {
     });
     alert.present();
   }
+
+  /*private localizacao: String;
+  pegarURL(){
+    this.localizacao = 'https://www.google.com/maps/search/?api=1&query='+this.cep.replace('-','');
+    console.log(this.localizacao);
+  }*/
 
   goMapaPage(): void {
     this.navCtrl.push(MapaPage);

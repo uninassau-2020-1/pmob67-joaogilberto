@@ -15,10 +15,10 @@ export class MapaPage {
   }
 
   ionViewDidLoad() {
-    const position = new google.maps.LatLng(-21.763409, -43.349034);
+    const position = new google.maps.LatLng(-8.0108174, -34.8547737);
 
     const mapOptions = {
-      zoom: 18,
+      zoom: 15,
       center: position,
       disableDefaultUI: false
     }
@@ -30,14 +30,13 @@ export class MapaPage {
       map: this.map,
 
       //Titulo
-      title: 'Minha posição',
+      //title: 'Minha posição',
 
       //Animção
       animation: google.maps.Animation.BOUNCE, // DROP
 
       //Icone
-      icon: 'assets/imgs/pessoa.png'
+      //icon: 'assets/imgs/pessoa.png'
     });
   }
-
 }
