@@ -11,7 +11,7 @@ import { MapaPage } from '../mapa/mapa';
 
 export class HomePage {
 
-	private cep: String;
+	private cep: String = '';
   private endereco: any = {};
   cepForm: FormGroup; // Form criado para manipular e validar o CEP digitado
 
@@ -26,9 +26,14 @@ export class HomePage {
 	}
 
 	getEndereco() {
-		if (this.cep == null) {	// Validação se o campo de CEP estiver vazio
+		if (this.cep == null || this.cep.length == 0) {	// Validação se o campo de CEP estiver vazio
 			this.alertNulo();
-		} else
+    }
+    else if (this.cep.length > 0 && this.cep.length < 9 ) {
+      this.alertInvalido2();
+      this.cepForm.reset(this.cep);
+    }
+      else
 			this.viacep.callService(this.cep) // Chamada do serviço ViaCep
 				.subscribe(
 					(data: any) => {
@@ -38,13 +43,22 @@ export class HomePage {
 						this.endereco = data;
 						this.cepForm.reset();
 					}
-				)
+        )
   }
 
   alertInvalido() {
     let alert = this.alertCtrl.create({
-      title: 'CEP INVÁLIDO!',
-      subTitle: 'Tente novamente',
+      title: 'CEP INVÁLIDO:',
+      subTitle: 'A busca não obteve resultados, tente novamente.',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  alertInvalido2() {
+    let alert = this.alertCtrl.create({
+      title: 'CEP INVÁLIDO:',
+      subTitle: 'O campo precisa conter 8 digitos.',
       buttons: ['OK']
     });
     alert.present();
@@ -52,8 +66,8 @@ export class HomePage {
 
   alertNulo() {
     let alert = this.alertCtrl.create({
-      title: 'INFORME UM CEP!',
-      subTitle: 'O campo está em branco',
+      title: 'INFORME UM CEP:',
+      subTitle: 'O campo está em branco.',
       buttons: ['OK']
     });
     alert.present();
