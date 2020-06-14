@@ -1,3 +1,5 @@
+import { CadastroPage } from './../pages/cadastro/cadastro';
+import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -10,24 +12,26 @@ import { HomePage } from '../pages/home/home';
 import { ViacepProvider } from '../providers/viacep/viacep';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { MapaPageModule } from '../pages/mapa/mapa.module';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    CadastroPage    
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    BrMaskerModule,
-    MapaPageModule
+    BrMaskerModule    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    CadastroPage    
   ],
   providers: [
     StatusBar,

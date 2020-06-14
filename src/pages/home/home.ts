@@ -82,5 +82,4 @@ export class HomePage {
   goMapaPage(): void {
     this.navCtrl.push(MapaPage);
   }
-
 }

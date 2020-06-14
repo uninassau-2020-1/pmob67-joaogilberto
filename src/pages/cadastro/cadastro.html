@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-icon name="wifi"></ion-icon>
+      CADASTRO
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-input placeholder="Digite o usuário" [(ngModel)]="usuario"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input placeholder="Digite a senha" type="password" [(ngModel)]="senha"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input placeholder="Digite a senha novamente" type="password" [(ngModel)]="resenha"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button full (click)="cadastra()">CADASTRAR</button>
+
+</ion-content>
