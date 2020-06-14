@@ -11,8 +11,8 @@ import { MapaPage } from '../mapa/mapa';
 
 export class HomePage {
 
-	private cep: String = '';
-  private endereco: any = {};
+	public cep: String = '';
+  public endereco: any = {};
   cepForm: FormGroup; // Form criado para manipular e validar o CEP digitado
 
 	constructor(
