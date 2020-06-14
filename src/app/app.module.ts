@@ -1,5 +1,3 @@
-import { CadastroPage } from './../pages/cadastro/cadastro';
-import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -12,12 +10,16 @@ import { HomePage } from '../pages/home/home';
 import { ViacepProvider } from '../providers/viacep/viacep';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { MapaPage } from '../pages/mapa/mapa';
+import { CadastroPage } from './../pages/cadastro/cadastro';
+import { LoginPage } from './../pages/login/login';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
+    MapaPage,
     CadastroPage    
   ],
   imports: [
@@ -31,6 +33,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     MyApp,
     HomePage,
     LoginPage,
+    MapaPage,
     CadastroPage    
   ],
   providers: [
@@ -38,7 +41,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ViacepProvider,
-    Geolocation
+    Geolocation    
   ]
 })
 export class AppModule {}

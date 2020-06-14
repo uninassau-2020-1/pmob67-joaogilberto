@@ -8,16 +8,14 @@ import { CadastroPage } from '../cadastro/cadastro';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  usuario: string;
-  senha: string;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
   }
 
-  entrar(){
-    console.log("Usuario "+ this.usuario)
-    console.log("Senha "+ this.senha)
+  entrarFb() {
+
   }
 
   goHomePage(): void {
