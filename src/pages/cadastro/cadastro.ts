@@ -9,7 +9,7 @@ export class CadastroPage {
 
   usuario: string;
   senha: string;
-  resenha: string;
+  rpsenha: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -17,6 +17,6 @@ export class CadastroPage {
   cadastra(){
     console.log("Usuario "+ this.usuario)
     console.log("Senha "+ this.senha)
-    console.log("ReSenha "+ this.resenha)
+    console.log("RpSenha "+ this.rpsenha)
   }
 }
