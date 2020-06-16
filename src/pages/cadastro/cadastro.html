@@ -2,27 +2,45 @@
   <ion-navbar>
     <ion-title>
       <ion-icon name="wifi"></ion-icon>
-      CADASTRO
+      CADASTRAR
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding>   
+
+  <form [formGroup]="todo" (ngSubmit)="CreateUser()" novalidate>
+    <ion-item>
+      <ion-label>USUÁRIO</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="todo.get('name').errors && todo.get('name').dirty">
+      <p color="danger" ion-text *ngIf="todo.get('name').hasError('required')"> CAMPO REQUERIDO</p>
+      <p color="danger" ion-text *ngIf="todo.get('name').hasError('minlength')"> MÍNIMO DE 4 CARACTERES</p>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>SENHA</ion-label>
+      <ion-input type="text" formControlName="identification"></ion-input>
+    </ion-item>
+  </form><br/>
+  <button ion-button block (click)="CreateUser();"> CADASTRAR</button><br/>
+  <button ion-button block (click)="GetAllUser();" color="facebook"> LISTAR CADASTROS</button><br/>
 
   <ion-list>
-    <ion-item>
-      <ion-input placeholder="Usuário" [(ngModel)]="usuario"></ion-input>
-    </ion-item>
+    <ion-item-sliding *ngFor="let item of ListUser">
+      <ion-item>      
+        <h2>{{item.name }}</h2>
+        <p>{{item.identification}}</p>
+      </ion-item>
 
-    <ion-item>
-      <ion-input placeholder="Senha" type="password" [(ngModel)]="senha"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input placeholder="Repetir senha" type="password" [(ngModel)]="rpsenha"></ion-input>
-    </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="DeleteUser(item.id)">
+          <ion-icon name="delete"></ion-icon>
+          Deletar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
-
-  <button ion-button full (click)="cadastra()">CADASTRAR</button>
 
 </ion-content>
