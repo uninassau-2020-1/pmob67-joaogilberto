@@ -23,7 +23,18 @@
   
   <button ion-button full block color="light" (click)="goCadastroPage()">CADASTRAR</button><br/>
 
-  <button (click)="entrarFb()" ion-button block color="facebook">
-  <ion-icon name="logo-facebook"></ion-icon> &nbsp; ENTRAR COM FACEBOOK</button><br/>
+  <ion-content padding>
+    <div *ngIf="isUserLoggedIn" style="text-align:center">
+      <img src="{{userInfo.picture.data.url}}">
+      <h3>{{userInfo.first_name}}</h3>
+      <p>{{userInfo.email}}</p>
+      <button ion-button clear (click)="logout()">Logout</button>
+    </div>
+  </ion-content>
+  <ion-footer *ngIf="!isUserLoggedIn">
+    <button ion-button block color="facebook" (click)="loginWithFB()">
+    <ion-icon name="logo-facebook"></ion-icon> &nbsp;  ENTRAR COM FACEBOOK</button>
+    
+  </ion-footer>
 
 </ion-content>

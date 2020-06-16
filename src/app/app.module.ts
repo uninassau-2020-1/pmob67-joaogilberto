@@ -15,6 +15,7 @@ import { CadastroPage } from './../pages/cadastro/cadastro';
 import { LoginPage } from './../pages/login/login';
 import { DatabaseProvider } from '../providers/database/database';
 import { SQLite } from '@ionic-native/sqlite';
+import { Facebook } from '@ionic-native/facebook/ngx';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SQLite } from '@ionic-native/sqlite';
     ViacepProvider,
     Geolocation,
     DatabaseProvider,
-    SQLite
+    SQLite,
+    Facebook    
   ]
 })
 export class AppModule {}

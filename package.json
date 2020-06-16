@@ -21,6 +21,7 @@
     "@angular/platform-browser": "5.0.3",
     "@angular/platform-browser-dynamic": "5.0.3",
     "@ionic-native/core": "4.4.0",
+    "@ionic-native/facebook": "^5.26.0",
     "@ionic-native/geolocation": "^5.25.0",
     "@ionic-native/splash-screen": "4.4.0",
     "@ionic-native/sqlite": "^4.20.0",
@@ -30,6 +31,7 @@
     "brmasker-ionic-3": "^1.6.3",
     "cordova-android": "^8.1.0",
     "cordova-plugin-device": "^1.1.7",
+    "cordova-plugin-facebook4": "6.4.0",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-ionic-webview": "^4.1.1",
     "cordova-plugin-splashscreen": "^4.1.0",
@@ -62,7 +64,13 @@
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
       },
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "3152512064807795",
+        "APP_NAME": "ViaCepFLogin",
+        "FACEBOOK_HYBRID_APP_EVENTS": "false",
+        "FACEBOOK_ANDROID_SDK_VERSION": "5.13.0"
+      }
     },
     "platforms": [
       "android"
