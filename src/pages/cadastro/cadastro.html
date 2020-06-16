@@ -10,6 +10,7 @@
 <ion-content padding>   
 
   <form [formGroup]="todo" (ngSubmit)="CreateUser()" novalidate>
+    
     <ion-item>
       <ion-label>USUÁRIO</ion-label>
       <ion-input type="text" formControlName="name"></ion-input>
@@ -24,6 +25,7 @@
       <ion-input type="text" formControlName="identification"></ion-input>
     </ion-item>
   </form><br/>
+
   <button ion-button block (click)="CreateUser();"> CADASTRAR</button><br/>
   <button ion-button block (click)="GetAllUser();" color="facebook"> LISTAR CADASTROS</button><br/>
 
